@@ -5,6 +5,8 @@ using MEC;
 using Respawning;
 using System.Collections.Generic;
 using System.Linq;
+using Exiled.Events.EventArgs.Server;
+using PlayerRoles;
 
 namespace SerpentsHand.Events
 {
@@ -37,8 +39,8 @@ namespace SerpentsHand.Events
             ev.IsAllowed = false;
             bool prioritySpawn = RespawnManager.Singleton._prioritySpawn;
 
-            if (prioritySpawn)
-                ev.Players.OrderBy(x => x.ReferenceHub.characterClassManager.DeathTime);
+            /*if (prioritySpawn)
+                ev.Players.OrderBy(x => x.ReferenceHub.characterClassManager.DeathTime);*/
 
             List<Player> sHPlayers = new List<Player>();
             for (int i = 0; i < config.SpawnManager.MaxSquad && ev.Players.Count > 0; i++)
@@ -59,11 +61,11 @@ namespace SerpentsHand.Events
 
         public void OnEndingRound(EndingRoundEventArgs ev)
         {
-            bool mtfAlive = Extensions.CountRoles(Team.MTF) > 0;
-            bool ciAlive = Extensions.CountRoles(Team.CHI) > 0;
-            bool scpAlive = Extensions.CountRoles(Team.SCP) + Extensions.GetScp035s().Count > 0;
-            bool dclassAlive = Extensions.CountRoles(Team.CDP) > 0;
-            bool scientistsAlive = Extensions.CountRoles(Team.RSC) > 0;
+            bool mtfAlive = Extensions.CountRoles(Team.FoundationForces) > 0;
+            bool ciAlive = Extensions.CountRoles(Team.ChaosInsurgency) > 0;
+            bool scpAlive = Extensions.CountRoles(Team.SCPs) + Extensions.GetScp035s().Count > 0;
+            bool dclassAlive = Extensions.CountRoles(Team.ClassD) > 0;
+            bool scientistsAlive = Extensions.CountRoles(Team.Scientists) > 0;
             bool shAlive = API.GetSHPlayers().Count > 0;
 
             if (shAlive && ((ciAlive && !config.SerpentsHandModifiers.ScpsWinWithChaos) || dclassAlive || mtfAlive || scientistsAlive))
