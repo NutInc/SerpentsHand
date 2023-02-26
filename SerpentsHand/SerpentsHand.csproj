@@ -46,4 +46,10 @@
       <HintPath>$(EXILED_REFERENCES)\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Patches" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Patches\RespawnTicketsDrawRandomTeam.cs" />
+  </ItemGroup>
 </Project>

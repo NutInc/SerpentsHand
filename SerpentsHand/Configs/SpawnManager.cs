@@ -35,7 +35,7 @@ namespace SerpentsHand.Configs
         public Broadcast EntryBroadcast { get; set; } = new Broadcast("<color=orange>Serpent's Hand has entered the facility!</color>");
 
         [Description("The Serpents Hand spawn position.")]
-        public Vector3 SpawnPos { get; set; } = new Vector3(0f, 1002f, 8f);
+        public Vector3 SpawnPos { get; set; } = new Vector3(0f, 1002f, 5);
 
         [Description("The Serpents Hand Unit Names")]
         public List<string> UnitNames { get; set; } = new List<string>
