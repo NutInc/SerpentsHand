@@ -35,7 +35,7 @@ namespace SerpentsHand.Events
 
             if (ev.Attacker == null)
                 return;
-
+            
             if (((API.IsSerpent(ev.Player) && (ev.Attacker.Role.Team == Team.SCPs || ev.DamageHandler.Type == DamageType.PocketDimension)) ||
                 (API.IsSerpent(ev.Attacker) && (ev.Player.Role.Team == Team.SCPs || (scp035s != null && scp035s.Contains(ev.Player)))) ||
                 (API.IsSerpent(ev.Player) && API.IsSerpent(ev.Attacker) && ev.Player != ev.Attacker)) && !config.SerpentsHandModifiers.FriendlyFire)

@@ -29,7 +29,7 @@ namespace SerpentsHand.Events
             if (ev.NextKnownTeam != SpawnableTeamType.ChaosInsurgency)
                 return;
             Extensions.CalculateChance();
-            if (!plugin.IsSpawnable)
+            if (!plugin.IsSpawnable) 
             {
                 if(!string.IsNullOrEmpty(config.SpawnManager.ChaosEntryAnnoucement))
                     Cassie.GlitchyMessage(config.SpawnManager.ChaosEntryAnnoucement, 0.05f, 0.05f);
