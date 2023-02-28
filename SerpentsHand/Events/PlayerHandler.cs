@@ -22,6 +22,14 @@ namespace SerpentsHand.Events
                     ev.Player.Position = Extensions.Get106Position();
             }
         }
+        
+        public void OnEnteringPocketDimension(EnteringPocketDimensionEventArgs ev)
+        {
+            if (API.IsSerpent(ev.Player) && !config.SerpentsHandModifiers.FriendlyFire)
+            {
+                ev.IsAllowed = false;
+            }
+        }
 
         public void OnEscapingPocketDimension(EscapingPocketDimensionEventArgs ev)
         {
