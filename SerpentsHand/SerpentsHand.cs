@@ -86,6 +86,7 @@ namespace SerpentsHand
             Player.Died -= playerHandler.OnDied;
             Player.ChangingRole -= playerHandler.OnChangingRole;
             Player.SpawningRagdoll -= playerHandler.OnSpawningRagdoll;
+            Player.EnteringPocketDimension -= playerHandler.OnEnteringPocketDimension;
 
             // Server
             Server.WaitingForPlayers -= serverHandler.OnWaitingForPlayers;
