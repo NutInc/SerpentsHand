@@ -22,7 +22,6 @@ namespace SerpentsHand
 
         private PlayerHandler playerHandler;
         private ServerHandler serverHandler;
-        private WarheadHandler warheadHandler;
 
         public override void OnEnabled()
         {
@@ -42,7 +41,6 @@ namespace SerpentsHand
         {
             playerHandler = new PlayerHandler();
             serverHandler = new ServerHandler();
-            warheadHandler = new WarheadHandler();
 
             // Player
             Player.FailingEscapePocketDimension += playerHandler.OnFailingEscapePocketDimension;
@@ -58,9 +56,7 @@ namespace SerpentsHand
             Server.WaitingForPlayers += serverHandler.OnWaitingForPlayers;
             Server.RespawningTeam += serverHandler.OnRespawningTeam;
             Server.EndingRound += serverHandler.OnEndingRound;
-
-            // Warhead
-            Warhead.Detonated += warheadHandler.OnDetonated;
+            
         }
 
         private void UnregisterEvents()
@@ -79,13 +75,10 @@ namespace SerpentsHand
             Server.WaitingForPlayers -= serverHandler.OnWaitingForPlayers;
             Server.RespawningTeam -= serverHandler.OnRespawningTeam;
             Server.EndingRound -= serverHandler.OnEndingRound;
-
-            // Warhead
-            Warhead.Detonated -= warheadHandler.OnDetonated;
+            
 
             playerHandler = null;
             serverHandler = null;
-            warheadHandler = null;
         }
     }
 }

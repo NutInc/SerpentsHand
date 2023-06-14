@@ -23,9 +23,10 @@ namespace SerpentsHand
         {
             player.SessionVariables.Add("IsSH", null);
             player.Role.Set(RoleTypeId.Tutorial);
+            player.IsGodModeEnabled = false;
             player.Health = config.SerpentsHandModifiers.Health;
             player.MaxHealth = (int)config.SerpentsHandModifiers.Health;
-            player.CustomInfo = config.SerpentsHandModifiers.RoleName;
+            player.CustomInfo += player.Nickname + "\n" + config.SerpentsHandModifiers.RoleName;
 
             player.ReferenceHub.nicknameSync.ShownPlayerInfo &= ~PlayerInfoArea.Nickname;
             player.ReferenceHub.nicknameSync.ShownPlayerInfo &= ~PlayerInfoArea.Role;

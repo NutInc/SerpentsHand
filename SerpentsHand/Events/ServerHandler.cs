@@ -93,6 +93,10 @@ namespace SerpentsHand.Events
                     ev.IsRoundEnded = true;
                 }
             }
+            else if (ciAlive && scpAlive && !config.SerpentsHandModifiers.ScpsWinWithChaos)
+            {
+                ev.IsRoundEnded = false;
+            }
         }
     }
 }
